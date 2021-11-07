@@ -39,7 +39,8 @@ class Game:
         self.fruit.generate_new_fruit()
         running = True
         while running:
-            pygame.time.delay(200)
+            # Delay time based on current score
+            pygame.time.delay(200 - (self.snake.length - 3) * 5)
             self.clock.tick(10)
             for event in pygame.event.get():
                 # Quit if the window is closed
