@@ -38,7 +38,7 @@ class Game:
 
     def reset_game_state(self):
         self.snake = Snake(self.screen)
-        self.fruit = Fruit(self.screen)
+        self.fruit.generate_new_fruit()
 
     def main_loop(self):
         self.snake.walk()
@@ -55,6 +55,10 @@ class Game:
         for i in range(3, self.snake.length):
             if self.detect_collision(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[i]):
                 raise ValueError("Game over")
+
+        # Check if snake head has collided with the wall
+        if self.snake.x[0] < 0 or self.snake.x[0] > self.screen.get_width() - self.block_size or self.snake.y[0] < 0 or self.snake.y[0] > self.screen.get_height() - self.block_size:
+            raise ValueError("Game over")
 
     def run(self):
         pygame.display.set_caption("Snake")
