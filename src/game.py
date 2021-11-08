@@ -36,6 +36,9 @@ class Game:
         self.screen.blit(line3, (100, 200))
         pygame.display.update()
 
+    def reset_game_state(self):
+        self.snake = Snake(self.screen)
+        self.fruit = Fruit(self.screen)
 
     def main_loop(self):
         self.snake.walk()
@@ -52,7 +55,6 @@ class Game:
         for i in range(3, self.snake.length):
             if self.detect_collision(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[i]):
                 raise ValueError("Game over")
-
 
     def run(self):
         pygame.display.set_caption("Snake")
@@ -95,4 +97,5 @@ class Game:
             except ValueError:
                 game_running = False
                 self.game_over_screen()
+                self.reset_game_state()
                     
