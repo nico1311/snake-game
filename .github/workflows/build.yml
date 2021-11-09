@@ -39,14 +39,14 @@ jobs:
           - os: macos-latest
             TARGET: macos
             CMD_BUILD: >
-                pyinstaller -F -w -n snake src/main.py --onefile &&
+                pyinstaller -F -w -n snake --add-data 'resources:resources' src/main.py &&
                 cd dist/ &&
                 zip -r9 snake snake.app/
             OUT_FILE_NAME: snake.zip
             ASSET_MIME: application/zip
           - os: windows-latest
             TARGET: windows
-            CMD_BUILD: pyinstaller -F -w -n snake src/main.py --onefile
+            CMD_BUILD: pyinstaller -F -w -n snake --add-data 'resources;resources' src/main.py
             OUT_FILE_NAME: snake.exe
             ASSET_MIME: application/vnd.microsoft.portable-executable
     steps:
