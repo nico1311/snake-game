@@ -1,5 +1,4 @@
 import pygame
-import time
 
 from snake import Snake
 from fruit import Fruit
@@ -81,8 +80,8 @@ class Game:
         self.running = True
         while self.running:
             # Delay time based on current score
-            pygame.time.delay(200 - (self.snake.length - 3) * 5)
-            self.clock.tick(10)
+            self.clock.tick(20)
+            pygame.time.delay(150 - ((self.snake.length - 3) * 4))
             for event in pygame.event.get():
                 # Quit if the window is closed
                 if event.type == pygame.QUIT:
