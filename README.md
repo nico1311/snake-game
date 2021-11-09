@@ -8,3 +8,5 @@ Activar virtualenv: `source .venv/bin/activate`
 * **Blocks - Set 01**: https://opengameart.org/content/blocks-set-01
 
 * **Fruit icons**: https://olgas-lab.itch.io/fruit-icons
+
+* **Efectos de sonido**: https://mixkit.co/free-sound-effects/

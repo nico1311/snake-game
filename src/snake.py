@@ -13,7 +13,8 @@ class Snake:
     self.block = pygame.transform.scale(pygame.image.load("resources/blocks/Blocks_01_64x64_Alt_00_005.png"), (self.block_size, self.block_size))
 
   def draw(self):
-    self.screen.fill((255, 255, 255))
+    bg = pygame.image.load("resources/background.jpg")
+    self.screen.blit(bg, (0, 0))
     # Draw all blocks
     for i in range(self.length):
       self.screen.blit(self.block, (self.x[i], self.y[i]))
